@@ -1,3 +1,7 @@
 Stop all hadoop services.
 Stop all Cloudera management services.
 Ensure mysql connector jar is present in Cloudera manager server incase MySQL server is installed on a different server.
+Make sure you have Cloudera manager console admin username and password.
+Make sure you have the list of IP/hostname of all nodes in the cluster.
+Make sure you have MySQL server IP/hostname and its root user credentials.
+If using enterprise CDH,keep the Cloudera enterprise license ready and it might needed to reload the license after migration.
