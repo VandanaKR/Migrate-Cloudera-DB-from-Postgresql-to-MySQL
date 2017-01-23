@@ -1,0 +1,3 @@
+Stop all hadoop services.
+Stop all Cloudera management services.
+Ensure mysql connector jar is present in Cloudera manager server incase MySQL server is installed on a different server.
