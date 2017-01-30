@@ -1,1 +1,21 @@
+Ensure cloudera server db config file[/etc/cloudera-scm-server/db.properties] reflects the details of mysql.
+If using cloudera versions less than CDH-5.4.x,then you need to perform following actions as defined in steps [a-f].
+(a) Disable Zookeeper ACL authentication Temporarily in case of kerberised cluster
+=> Login as admin user using default password. Navigate to Zookeeper service → Configuration choose, "Java Configuration Options for ZooKeeper Server".
+=> Add this property to reset the super digest authentication: -Dzookeeper.DigestAuthenticationProvider.superDigest=super:cY+9eK20soteVC3fQ83SXDvwlP0=
+(b) Start the Zookeeper from cloudera manager
+(c) Remove zookeeper znode /hadoop-ha
+(d) Enable zookeeper authentication: Remove -D property added in step3(a) ie, Zookeeper's java configuration snippet.
+(e) Restart the zookeeper service from Cloudera manager.
+(f) Intialize Automatic Failover Znode 
+=> Navigate to HDFS → Instances → Select a failover contoller. Then go to Actions → Intialize Automatic Failover Znode
+Start all the services.
+Modify database details in Cloudera management service Configuration
+=> Navigate to Cloudera Management service → Configuration.Change all Monitoring service Databases as mysql.
+Change the admin password as required. [as Cloudera-DB migration has reset the admin password to default 'admin'].
+
+
+
+
+
 
