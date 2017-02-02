@@ -13,7 +13,7 @@ Start all the services.
 Modify database details in Cloudera management service Configuration
 => Navigate to Cloudera Management service → Configuration.Change all Monitoring service Databases as mysql.
 Change the admin password as required. [as Cloudera-DB migration has reset the admin password to default 'admin'].
-
+If required, to avoid later contention, you can remove cloudera-server-db using: yum erase cloudera-manager-server-db
 
 
 
