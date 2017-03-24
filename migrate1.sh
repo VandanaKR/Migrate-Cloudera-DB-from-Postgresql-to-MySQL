@@ -240,7 +240,7 @@ for i in `cat $curr/server_list`; do ssh root@$i "echo $i; /etc/init.d/cloudera-
 #importing the cloudera manager configurations from dumpfile
 
 echo -e "\n####### Importing Cloudera configurations back via api  #######\n"
-rept=$(curl --upload-file /root/CMbackup/cm-deployment.json -u admin:admin http://$CM_host:7180/api/v9/cm/deployment?deleteCurrentDeployment=true)
+rept=$(curl -H "Content-Type: application/json" --upload-file /root/CMbackup/cm-deployment.json -u admin:admin http://$CM_host:7180/api/v9/cm/deployment?deleteCurrentDeployment=true)
 status=$?
 if [ $status -eq 0 ]; then
     echo -e "\n####### Configurations imported successfully #######\n"
